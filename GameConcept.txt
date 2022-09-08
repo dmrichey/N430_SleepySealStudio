@@ -1,0 +1,10 @@
+Isometric Ruin Exploration Game - Seek Mythic Treasure at Center of Ruin Complex
+
+X Actions per Day, then return to Base Camp - dialogue, hints, rumors, etc.
+
+Environmental Puzzles as Obstacles
+
+Alien Planet Environment
+
+3 Puzzle Rooms, Dialogue Sections between
+	2 Minor, 1 Major Puzzle per Room
