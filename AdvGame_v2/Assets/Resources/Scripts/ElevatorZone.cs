@@ -6,7 +6,7 @@ public class ElevatorZone : MonoBehaviour
 {
     public int layerNum;
     
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player")){
             collision.gameObject.GetComponent<TopDownController>().ShiftLayer(layerNum);
@@ -15,3 +15,4 @@ public class ElevatorZone : MonoBehaviour
 
 
 }
+
