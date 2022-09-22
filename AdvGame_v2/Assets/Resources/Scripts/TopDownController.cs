@@ -15,7 +15,9 @@ public class TopDownController : MonoBehaviour
     float speed;
 
     public bool boxGrabEnabled = false;
+    public bool heightTestingEnabled = false;
     public float dragSpeed;
+    public int defaultSpriteLayer = 1;
     bool holdingBox = false;
 
     // Start is called before the first frame update
@@ -31,6 +33,12 @@ public class TopDownController : MonoBehaviour
         direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
         // set walk based on direction
         body.velocity = direction * speed;
+
+        //TESTING ONLY REMOVE LATER
+
+        if (heightTestingEnabled && Input.GetKeyDown(KeyCode.Space)) {
+            spriteRenderer.sortingOrder++;
+        }
 
         if (boxGrabEnabled) {
             if (Input.GetKeyDown(KeyCode.E)) {
