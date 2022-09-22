@@ -10,13 +10,18 @@ public class TopDownController : MonoBehaviour
 
     // Animation Setup
 
-    public float walkSpeed;
+    public float baseSpeed;
     Vector2 direction;
+    float speed;
+
+    public bool boxGrabEnabled = false;
+    public float dragSpeed;
+    bool holdingBox = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        speed = baseSpeed;
     }
 
     // Update is called once per frame
@@ -25,6 +30,28 @@ public class TopDownController : MonoBehaviour
         // get direction of input
         direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
         // set walk based on direction
-        body.velocity = direction * walkSpeed;
+        body.velocity = direction * speed;
+
+        if (boxGrabEnabled) {
+            if (Input.GetKeyDown(KeyCode.E)) {
+                if (!holdingBox) {
+                    Debug.Log("Grab Box");
+                    holdingBox = true;
+                    // Attach Box to Player
+                        // Find Box
+                        // Parent Player to Box
+                    // Change Speed
+                    speed = dragSpeed;
+                    // Set Drag Anim Facing Box
+                } else {
+                    Debug.Log("Release Box");
+                    holdingBox = false;
+                    // Detach Box from Player
+                    // Change Speed
+                    speed = baseSpeed;
+                    // Resume Normal Animations
+                }
+            }
+        }
     }
 }

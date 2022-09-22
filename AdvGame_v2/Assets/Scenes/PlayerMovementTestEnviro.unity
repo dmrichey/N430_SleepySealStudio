@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 309023772}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -228,7 +228,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 309023773}
   spriteRenderer: {fileID: 309023774}
-  walkSpeed: 1.5
+  baseSpeed: 0
+  boxGrabEnabled: 0
+  dragSpeed: 0
 --- !u!50 &309023773
 Rigidbody2D:
   serializedVersion: 4
@@ -8136,6 +8138,7 @@ GameObject:
   - component: {fileID: 1269973404}
   - component: {fileID: 1269973403}
   - component: {fileID: 1269973402}
+  - component: {fileID: 1269973406}
   m_Layer: 0
   m_Name: BoxToPush
   m_TagString: Untagged
@@ -8255,6 +8258,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1269973406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269973401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df61277037739d4d950ddbdadfee850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1345964823
 GameObject:
   m_ObjectHideFlags: 3
