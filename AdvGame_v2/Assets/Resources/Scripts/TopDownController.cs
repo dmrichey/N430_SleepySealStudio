@@ -62,4 +62,8 @@ public class TopDownController : MonoBehaviour
             }
         }
     }
+    public void ShiftLayer(int layer)
+    {
+        spriteRenderer.sortingOrder = layer;
+    }
 }
