@@ -42,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 125
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,7 +103,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: grasssheet0_47
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 0
+        width: 128
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7735aa2face4a3e4490a707384fd04f4
+      internalID: 603936845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +135,63 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      grasssheet0_39: 63613406
+      grasssheet0_11: -582334579
+      grasssheet0_40: 424192222
+      grasssheet0_43: 271623981
+      grasssheet0_51: 2085017784
+      grasssheet0_45: 240893564
+      grasssheet0_16: 2139390292
+      grasssheet0_5: -1967544352
+      grasssheet0_7: -1594944774
+      grasssheet0_41: -757805447
+      grasssheet0_33: -34796754
+      grasssheet0_35: -637954091
+      grasssheet0_53: 925214743
+      grasssheet0_32: -1485064366
+      grasssheet0_49: -1104795222
+      grasssheet0_13: 1804966998
+      grasssheet0_17: -1389473837
+      grasssheet0_20: 709980900
+      grasssheet0_23: 1757414748
+      grasssheet0_52: 132013649
+      grasssheet0_4: -1166566164
+      grasssheet0_18: -436586067
+      grasssheet0_34: 512772658
+      grasssheet0_6: -1073330419
+      grasssheet0_26: -1019822879
+      grasssheet0_9: 191199304
+      grasssheet0_25: 203133870
+      grasssheet0_37: 1511178772
+      grasssheet0_1: 1334837132
+      grasssheet0_15: -1854677669
+      grasssheet0_42: 1783127241
+      grasssheet0_54: -592511687
+      grasssheet0_47: 603936845
+      grasssheet0_3: 755040762
+      grasssheet0_19: -969963854
+      grasssheet0_22: -1742123073
+      grasssheet0_24: 103234927
+      grasssheet0_44: -1636035480
+      grasssheet0_55: -2125843877
+      grasssheet0_27: -3763848
+      grasssheet0_38: 2091267202
+      grasssheet0_21: -1171039216
+      grasssheet0_29: -1066215531
+      grasssheet0_30: 1790344383
+      grasssheet0_50: -362375299
+      grasssheet0_46: 1899700236
+      grasssheet0_14: -1275088365
+      grasssheet0_0: -915094396
+      grasssheet0_2: 606757887
+      grasssheet0_31: 2059128170
+      grasssheet0_28: -971758735
+      grasssheet0_36: 13097954
+      grasssheet0_8: -695986322
+      grasssheet0_12: -1290503388
+      grasssheet0_10: 1704279118
+      grasssheet0_48: 994388563
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
