@@ -21,6 +21,7 @@ public class PushBoxes : MonoBehaviour
         if (other.CompareTag("Player")) {
             Debug.Log("SetBoxGrabEnabled");
             other.GetComponentInParent<TopDownController>().boxGrabEnabled = true;
+            other.GetComponentInParent<TopDownController>().boxToMove = this.gameObject;
         }
     }
 
@@ -29,6 +30,7 @@ public class PushBoxes : MonoBehaviour
         if (other.CompareTag("Player")) {
             Debug.Log("SetBoxGrabDisabled");
             other.GetComponentInParent<TopDownController>().boxGrabEnabled = false;
+            other.GetComponentInParent<TopDownController>().boxToMove = null;
         }
     }
 }

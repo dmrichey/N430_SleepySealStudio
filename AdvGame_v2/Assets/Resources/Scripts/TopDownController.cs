@@ -5,8 +5,9 @@ using UnityEngine;
 public class TopDownController : MonoBehaviour
 {
 
-    public Rigidbody2D body;
-    public SpriteRenderer spriteRenderer;
+    Rigidbody2D body;
+    SpriteRenderer spriteRenderer;
+
 
     // Animation Setup
 
@@ -14,16 +15,22 @@ public class TopDownController : MonoBehaviour
     Vector2 direction;
     float speed;
 
+    public int currentSortingOrder;
+
     public bool boxGrabEnabled = false;
     public bool heightTestingEnabled = false;
+    public GameObject boxToMove;
     public float dragSpeed;
-    public int defaultSpriteLayer = 1;
     bool holdingBox = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        body = this.GetComponent<Rigidbody2D>();
+        spriteRenderer = this.GetComponent<SpriteRenderer>();
+
         speed = baseSpeed;
+        currentSortingOrder = spriteRenderer.sortingOrder;
     }
 
     // Update is called once per frame
@@ -35,19 +42,19 @@ public class TopDownController : MonoBehaviour
         body.velocity = direction * speed;
 
         //TESTING ONLY REMOVE LATER
-
+        /*
         if (heightTestingEnabled && Input.GetKeyDown(KeyCode.Space)) {
             spriteRenderer.sortingOrder++;
         }
+        */
 
-        if (boxGrabEnabled) {
+        if (boxGrabEnabled || holdingBox) {
             if (Input.GetKeyDown(KeyCode.E)) {
                 if (!holdingBox) {
                     Debug.Log("Grab Box");
                     holdingBox = true;
                     // Attach Box to Player
-                        // Find Box
-                        // Parent Player to Box
+                    boxToMove.transform.parent = this.transform;
                     // Change Speed
                     speed = dragSpeed;
                     // Set Drag Anim Facing Box
@@ -55,6 +62,7 @@ public class TopDownController : MonoBehaviour
                     Debug.Log("Release Box");
                     holdingBox = false;
                     // Detach Box from Player
+                    this.transform.DetachChildren();
                     // Change Speed
                     speed = baseSpeed;
                     // Resume Normal Animations
@@ -62,8 +70,10 @@ public class TopDownController : MonoBehaviour
             }
         }
     }
+
     public void ShiftLayer(int layer)
     {
         spriteRenderer.sortingOrder = layer;
+        currentSortingOrder = layer;
     }
 }
