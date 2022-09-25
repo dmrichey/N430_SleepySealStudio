@@ -59,13 +59,7 @@ public class TopDownController : MonoBehaviour
                     speed = dragSpeed;
                     // Set Drag Anim Facing Box
                 } else {
-                    Debug.Log("Release Box");
-                    holdingBox = false;
-                    // Detach Box from Player
-                    this.transform.DetachChildren();
-                    // Change Speed
-                    speed = baseSpeed;
-                    // Resume Normal Animations
+                    ReleaseBox();
                 }
             }
         }
@@ -75,5 +69,16 @@ public class TopDownController : MonoBehaviour
     {
         spriteRenderer.sortingOrder = layer;
         currentSortingOrder = layer;
+    }
+
+    public void ReleaseBox()
+    {
+        Debug.Log("Release Box");
+        holdingBox = false;
+        // Detach Box from Player
+        this.transform.DetachChildren();
+        // Change Speed
+        speed = baseSpeed;
+        // Resume Normal Animations
     }
 }
