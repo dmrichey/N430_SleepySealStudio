@@ -18,7 +18,6 @@ public class TopDownController : MonoBehaviour
     public int currentSortingOrder;
 
     public bool boxGrabEnabled = false;
-    public bool heightTestingEnabled = false;
     public GameObject boxToMove;
     public float dragSpeed;
     bool holdingBox = false;
@@ -40,13 +39,6 @@ public class TopDownController : MonoBehaviour
         direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
         // set walk based on direction
         body.velocity = direction * speed;
-
-        //TESTING ONLY REMOVE LATER
-        /*
-        if (heightTestingEnabled && Input.GetKeyDown(KeyCode.Space)) {
-            spriteRenderer.sortingOrder++;
-        }
-        */
 
         if (boxGrabEnabled || holdingBox) {
             if (Input.GetKeyDown(KeyCode.E)) {

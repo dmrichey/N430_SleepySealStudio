@@ -7,6 +7,7 @@ public class PlaceBox : MonoBehaviour
     public GameObject correctBox;
     public GameObject levelTrigger;
     public bool isExitTrigger;
+    public Vector3 positionLockOffset;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -18,7 +19,7 @@ public class PlaceBox : MonoBehaviour
                 other.GetComponentInParent<TopDownController>().boxToMove = null;
                 other.GetComponentInParent<TopDownController>().ReleaseBox();
                 other.transform.parent = this.transform;
-                other.transform.position = new Vector3(1.5f, 5.5f, 0);
+                other.transform.position = positionLockOffset;
 
                 if (isExitTrigger)
                 {
