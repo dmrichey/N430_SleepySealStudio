@@ -139,6 +139,5 @@ MonoBehaviour:
   baseSpeed: 2
   currentSortingOrder: 1
   boxGrabEnabled: 0
-  heightTestingEnabled: 1
   boxToMove: {fileID: 0}
-  dragSpeed: 0.3
+  dragSpeed: 1.2

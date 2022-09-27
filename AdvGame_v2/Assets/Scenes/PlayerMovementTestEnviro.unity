@@ -266,7 +266,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &537696049
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12551,6 +12551,14 @@ PrefabInstance:
       propertyPath: levelTrigger
       value: 
       objectReference: {fileID: 19682761}
+    - target: {fileID: 6957236263737208841, guid: 2452908c36ea7aa41b1d7aa7b6adabb1, type: 3}
+      propertyPath: positionLockOffset.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6957236263737208841, guid: 2452908c36ea7aa41b1d7aa7b6adabb1, type: 3}
+      propertyPath: positionLockOffset.y
+      value: 5.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6957236263737208845, guid: 2452908c36ea7aa41b1d7aa7b6adabb1, type: 3}
       propertyPath: m_Name
       value: PlaceBox
