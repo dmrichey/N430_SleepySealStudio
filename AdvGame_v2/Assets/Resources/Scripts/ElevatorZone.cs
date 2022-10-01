@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class ElevatorZone : MonoBehaviour
 {
-    public int layerNum;
+    public int lowerLayer;
+    public int upperLayer;
     
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Player")){
-            collision.gameObject.GetComponent<TopDownController>().ShiftLayer(layerNum);
+        if (other.CompareTag("Player")){
+            if (other.GetComponentInParent<TopDownController>().currentSortingOrder == lowerLayer)
+            {
+                other.GetComponentInParent<TopDownController>().ShiftLayer(upperLayer);
+            } else
+            {
+                other.GetComponentInParent<TopDownController>().ShiftLayer(lowerLayer);
+            }            
         }
     }
 
