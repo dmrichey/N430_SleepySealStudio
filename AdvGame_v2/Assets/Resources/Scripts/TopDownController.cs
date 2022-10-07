@@ -17,10 +17,15 @@ public class TopDownController : MonoBehaviour
 
     public int currentSortingOrder;
 
+    // Box Movement
     public bool boxGrabEnabled = false;
     public GameObject boxToMove;
     public float dragSpeed;
     bool holdingBox = false;
+
+    // Button Handling
+    public bool buttonPressEnabled = false;
+    public GameObject buttonToPress;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +58,14 @@ public class TopDownController : MonoBehaviour
                 } else {
                     ReleaseBox();
                 }
+            }
+        }
+
+        if (buttonPressEnabled) {
+            if (Input.GetKeyDown(KeyCode.E)) {
+                Debug.Log("Press Button");
+
+                buttonToPress.GetComponentInParent<Button>().PressButton();
             }
         }
     }
