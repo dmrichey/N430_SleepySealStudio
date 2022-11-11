@@ -136,8 +136,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c5eae63a79a47140b344c4419ae4951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseSpeed: 2
+  baseSpeed: 4
   currentSortingOrder: 1
   boxGrabEnabled: 0
   boxToMove: {fileID: 0}
-  dragSpeed: 1.2
+  dragSpeed: 3
+  buttonPressEnabled: 0
+  buttonToPress: {fileID: 0}

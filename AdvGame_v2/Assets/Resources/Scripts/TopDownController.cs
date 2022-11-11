@@ -14,6 +14,8 @@ public class TopDownController : MonoBehaviour
     public float baseSpeed;
     Vector2 direction;
     float speed;
+    float dx;
+    float dy;
 
     public int currentSortingOrder;
 
@@ -41,7 +43,18 @@ public class TopDownController : MonoBehaviour
     void Update()
     {
         // get direction of input
-        direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
+        if (Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") != 0)
+        {
+            dx = Mathf.Cos(Mathf.PI / 6) * Input.GetAxis("Horizontal");
+            dy = Mathf.Sin(Mathf.PI / 6) * Input.GetAxis("Vertical");            
+        } else
+        {
+            dx = Input.GetAxis("Horizontal");
+            dy = Input.GetAxis("Vertical");
+        }
+
+        direction = new Vector2(dx, dy).normalized;
+
         // set walk based on direction
         body.velocity = direction * speed;
 
