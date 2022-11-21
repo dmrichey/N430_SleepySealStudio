@@ -5,6 +5,7 @@ using UnityEngine;
 public class Button : MonoBehaviour
 {
     public GameObject buttonCombination;
+    public GameObject InteractionText;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -13,6 +14,7 @@ public class Button : MonoBehaviour
             Debug.Log("SetButtonPressEnabled");
             other.GetComponentInParent<TopDownController>().buttonPressEnabled = true;
             other.GetComponentInParent<TopDownController>().buttonToPress = this.gameObject;
+            InteractionText.SetActive(true);
         }
     }
 
@@ -23,6 +25,7 @@ public class Button : MonoBehaviour
             Debug.Log("SetButtonPressDisabled");
             other.GetComponentInParent<TopDownController>().buttonPressEnabled = false;
             other.GetComponentInParent<TopDownController>().buttonToPress = null;
+            InteractionText.SetActive(false);
         }
     }
 

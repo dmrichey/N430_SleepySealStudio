@@ -101,7 +101,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.4}
-  m_Size: {x: 0.4, y: 0.2}
+  m_Size: {x: 0.6, y: 0.35}
   m_Direction: 1
 --- !u!50 &6743124566292312973
 Rigidbody2D:
@@ -120,7 +120,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -136,10 +136,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c5eae63a79a47140b344c4419ae4951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseSpeed: 4
+  baseSpeed: 3.2
   currentSortingOrder: 1
   boxGrabEnabled: 0
   boxToMove: {fileID: 0}
-  dragSpeed: 3
+  dragSpeed: 2.4
   buttonPressEnabled: 0
   buttonToPress: {fileID: 0}

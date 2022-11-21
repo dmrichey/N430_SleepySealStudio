@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PushBoxes : MonoBehaviour
 {
+
+    public GameObject grabText;
+    public GameObject releaseText;
     
     void OnTriggerEnter2D(Collider2D other) 
     {
@@ -11,6 +14,7 @@ public class PushBoxes : MonoBehaviour
             Debug.Log("SetBoxGrabEnabled");
             other.GetComponentInParent<TopDownController>().boxGrabEnabled = true;
             other.GetComponentInParent<TopDownController>().boxToMove = this.gameObject;
+            grabText.SetActive(true);
         }
     }
 
@@ -20,6 +24,7 @@ public class PushBoxes : MonoBehaviour
             Debug.Log("SetBoxGrabDisabled");
             other.GetComponentInParent<TopDownController>().boxGrabEnabled = false;
             other.GetComponentInParent<TopDownController>().boxToMove = null;
+            grabText.SetActive(false);
         }
     }
 }

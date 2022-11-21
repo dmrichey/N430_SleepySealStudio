@@ -22,12 +22,17 @@ public class TopDownController : MonoBehaviour
     // Box Movement
     public bool boxGrabEnabled = false;
     public GameObject boxToMove;
+    GameObject heldBox;
     public float dragSpeed;
     bool holdingBox = false;
 
     // Button Handling
     public bool buttonPressEnabled = false;
     public GameObject buttonToPress;
+
+    // Collectible Handling
+    public bool itemGrabEnabled = false;
+    public GameObject itemToGrab;
 
     // Start is called before the first frame update
     void Start()
@@ -64,11 +69,14 @@ public class TopDownController : MonoBehaviour
                     Debug.Log("Grab Box");
                     holdingBox = true;
                     // Attach Box to Player
+                    heldBox = boxToMove;
                     boxToMove.transform.parent = this.transform;
+                    boxToMove.GetComponentInParent<PushBoxes>().releaseText.SetActive(true);
                     // Change Speed
                     speed = dragSpeed;
                     // Set Drag Anim Facing Box
                 } else {
+                    heldBox.GetComponentInParent<PushBoxes>().releaseText.SetActive(false);
                     ReleaseBox();
                 }
             }
@@ -79,6 +87,14 @@ public class TopDownController : MonoBehaviour
                 Debug.Log("Press Button");
 
                 buttonToPress.GetComponentInParent<Button>().PressButton();
+            }
+        }
+
+        if (itemGrabEnabled) {
+            if (Input.GetKeyDown(KeyCode.E)) {
+                Debug.Log("Collect Item");
+
+                itemToGrab.GetComponentInParent<Collectible>().Collect();
             }
         }
     }
