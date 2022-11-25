@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 8660762881692512912}
   - component: {fileID: 5028450917258544044}
   - component: {fileID: 6107404978960489282}
+  - component: {fileID: 3416678534263620871}
   m_Layer: 5
   m_Name: TextBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8660762881692512912
 RectTransform:
   m_ObjectHideFlags: 0
@@ -77,6 +78,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3416678534263620871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3609106223179413642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0388e9c87e744b44acaef61db6dff26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBox: {fileID: 4851471021111686142}
 --- !u!1 &5658681554716046651
 GameObject:
   m_ObjectHideFlags: 0

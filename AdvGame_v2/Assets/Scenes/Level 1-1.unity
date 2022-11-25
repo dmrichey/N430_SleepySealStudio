@@ -13393,6 +13393,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
+    - target: {fileID: 6743124566292312972, guid: df0371adab4f9b24bb1c6d1c5228a55b, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 3716160916534424652}
     - target: {fileID: 6743124566292312975, guid: df0371adab4f9b24bb1c6d1c5228a55b, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -26256,10 +26260,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3609106223179413642, guid: ea890252f45654e489b1feef6d9f5cc5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8173120321601875329, guid: ea890252f45654e489b1feef6d9f5cc5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -26347,10 +26347,6 @@ PrefabInstance:
     - target: {fileID: 8523671902642144808, guid: ea890252f45654e489b1feef6d9f5cc5, type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 8523671902642144808, guid: ea890252f45654e489b1feef6d9f5cc5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea890252f45654e489b1feef6d9f5cc5, type: 3}
@@ -26533,6 +26529,10 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 3716160916534424652}
+    - target: {fileID: 3899476338221424473, guid: c7f0346c5c00b5841886db98ef907f22, type: 3}
+      propertyPath: textID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6953573946791538120, guid: c7f0346c5c00b5841886db98ef907f22, type: 3}
       propertyPath: m_RootOrder
       value: 14

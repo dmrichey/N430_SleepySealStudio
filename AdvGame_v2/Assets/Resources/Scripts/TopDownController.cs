@@ -10,7 +10,7 @@ public class TopDownController : MonoBehaviour
 
 
     // Animation Setup
-
+    bool movementEnabled = true;
     public float baseSpeed;
     Vector2 direction;
     float speed;
@@ -33,6 +33,9 @@ public class TopDownController : MonoBehaviour
     // Collectible Handling
     public bool itemGrabEnabled = false;
     public GameObject itemToGrab;
+    int itemID = 0;
+    public GameObject canvas;
+    bool textDisplayed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -48,14 +51,17 @@ public class TopDownController : MonoBehaviour
     void Update()
     {
         // get direction of input
-        if (Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") != 0)
-        {
-            dx = Mathf.Cos(Mathf.PI / 6) * Input.GetAxis("Horizontal");
-            dy = Mathf.Sin(Mathf.PI / 6) * Input.GetAxis("Vertical");            
-        } else
-        {
-            dx = Input.GetAxis("Horizontal");
-            dy = Input.GetAxis("Vertical");
+        if (movementEnabled) {
+            if (Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") != 0)
+            {
+                dx = Mathf.Cos(Mathf.PI / 6) * Input.GetAxis("Horizontal");
+                dy = Mathf.Sin(Mathf.PI / 6) * Input.GetAxis("Vertical");
+            }
+            else
+            {
+                dx = Input.GetAxis("Horizontal");
+                dy = Input.GetAxis("Vertical");
+            }
         }
 
         direction = new Vector2(dx, dy).normalized;
@@ -80,21 +86,33 @@ public class TopDownController : MonoBehaviour
                     ReleaseBox();
                 }
             }
-        }
-
-        if (buttonPressEnabled) {
+        } else if (buttonPressEnabled) {
             if (Input.GetKeyDown(KeyCode.E)) {
                 Debug.Log("Press Button");
 
                 buttonToPress.GetComponentInParent<Button>().PressButton();
             }
-        }
-
-        if (itemGrabEnabled) {
+        } else if (itemGrabEnabled) {
             if (Input.GetKeyDown(KeyCode.E)) {
                 Debug.Log("Collect Item");
 
-                itemToGrab.GetComponentInParent<Collectible>().Collect();
+                itemID = itemToGrab.GetComponentInParent<Collectible>().Collect();
+                movementEnabled = false;
+
+                canvas.SetActive(true);
+                textDisplayed = true;
+                canvas.GetComponentInParent<TextLibrary>().DisplayText(itemID);
+            }
+        } else if (textDisplayed) {
+            if (Input.GetKeyDown(KeyCode.E)) {
+                Debug.Log("Next Text");
+
+                textDisplayed = canvas.GetComponentInParent<TextLibrary>().ProgressText();
+                if (!textDisplayed)
+                {
+                    canvas.SetActive(false);
+                    movementEnabled = true;
+                }
             }
         }
     }
