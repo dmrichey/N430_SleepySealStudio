@@ -101,7 +101,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.4}
-  m_Size: {x: 0.6, y: 0.35}
+  m_Size: {x: 0.7, y: 0.6}
   m_Direction: 1
 --- !u!50 &6743124566292312973
 Rigidbody2D:
@@ -143,3 +143,6 @@ MonoBehaviour:
   dragSpeed: 2.4
   buttonPressEnabled: 0
   buttonToPress: {fileID: 0}
+  itemGrabEnabled: 0
+  itemToGrab: {fileID: 0}
+  canvas: {fileID: 0}

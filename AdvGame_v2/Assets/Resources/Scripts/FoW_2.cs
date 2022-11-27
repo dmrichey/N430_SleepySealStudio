@@ -60,7 +60,7 @@ public class FoW_2 : MonoBehaviour
         {
             for (int j = 0; j < 32; j++)
             {
-                currentCell = playerCell - new Vector3Int(i - 12, j - 12, 0);
+                currentCell = playerCell - new Vector3Int(i - 16, j - 16, 0);
                 graph[i, j] = new Cell(i, j, currentCell, collisionMap.GetTile(currentCell) == collisionTile);
                 toVisit[i, j] = false;
                 distance[i, j] = 100;
@@ -68,9 +68,9 @@ public class FoW_2 : MonoBehaviour
         }
 
         // Recursive Check Every Grid Cell
-        toVisit[12, 12] = true;
-        distance[12, 12] = 0;
-        Visit(graph[12, 12], graph, toVisit, distance);
+        toVisit[16, 16] = true;
+        distance[16, 16] = 0;
+        Visit(graph[16, 16], graph, toVisit, distance);
 
         // Set Darkness
         //Debug.Log("Setting Darkness");
@@ -78,13 +78,15 @@ public class FoW_2 : MonoBehaviour
         {
             for (int j = 0; j < 32; j++)
             {
-                if (distance[i,j] == 7)
-                {
-                    fogMap.SetTile(graph[i, j].position, borderTile);
-                } else if (distance[i,j] >= 8)
+                if (distance[i,j] >= 11)
                 {
                     fogMap.SetTile(graph[i, j].position, fogTile);
+                } 
+                /*else if (distance[i,j] >= 8)
+                {
+                    fogMap.SetTile(graph[i, j].position, borderTile);
                 }
+                */
             }
         }
     }
@@ -101,15 +103,28 @@ public class FoW_2 : MonoBehaviour
         { // In Bounds
             if (!graph[x-1, y].visited)
             { // Not Finalized
-                toVisit[x - 1, y] = true;
-                if (graph[x-1,y].hasCollider && !graph[x,y].hasCollider && distance[x-1,y] < 6)
-                {
-                    distance[x - 1, y] = 6;
+                if (toVisit[x-1, y])
+                { // Has Been Seen Before
+                    if (graph[x - 1, y].hasCollider)
+                    {
+                        distance[x - 1 , y] += 11;
+                    }
+                    else if (distance[x - 1, y] > (distance[x, y] + 1))
+                    {
+                        distance[x - 1, y] = distance[x, y] + 1;
+                    }
                 } else
-                {
-                    distance[x - 1, y] = distance[x, y] + 1;
+                { // First Seen
+                    if (graph[x - 1, y].hasCollider)
+                    {
+                        distance[x - 1, y] = 11;
+                    }
+                    else
+                    {
+                        distance[x - 1, y] = distance[x, y] + 1;
+                    }
+                    toVisit[x - 1, y] = true;
                 }
-
             }
         }
         // Check Right
@@ -117,16 +132,29 @@ public class FoW_2 : MonoBehaviour
         { // In Bounds
             if (!graph[x + 1, y].visited)
             { // Not Finalized
-                toVisit[x + 1, y] = true;
-                if (graph[x + 1, y].hasCollider && !graph[x, y].hasCollider && distance[x + 1, y] < 6)
-                {
-                    distance[x + 1, y] = 6;
+                if (toVisit[x + 1, y])
+                { // Has Been Seen Before
+                    if (graph[x + 1, y].hasCollider)
+                    {
+                        distance[x + 1, y] += 11;
+                    }
+                    else if (distance[x + 1, y] > (distance[x, y] + 1))
+                    {
+                        distance[x + 1, y] = distance[x, y] + 1;
+                    }
                 }
                 else
-                {
-                    distance[x + 1, y] = distance[x, y] + 1;
+                { // First Seen
+                    if (graph[x + 1, y].hasCollider)
+                    {
+                        distance[x + 1, y] = 11;
+                    }
+                    else
+                    {
+                        distance[x + 1, y] = distance[x, y] + 1;
+                    }
+                    toVisit[x + 1, y] = true;
                 }
-
             }
         }
         // Check Up
@@ -134,16 +162,29 @@ public class FoW_2 : MonoBehaviour
         { // In Bounds
             if (!graph[x, y - 1].visited)
             { // Not Finalized
-                toVisit[x, y - 1] = true;
-                if (graph[x, y - 1].hasCollider && !graph[x, y].hasCollider && distance[x, y - 1] < 6)
-                {
-                    distance[x, y - 1] = 6;
+                if (toVisit[x, y - 1])
+                { // Has Been Seen Before
+                    if (graph[x, y - 1].hasCollider)
+                    {
+                        distance[x, y - 1] += 11;
+                    }
+                    else if (distance[x, y - 1] > (distance[x, y] + 1))
+                    {
+                        distance[x, y - 1] = distance[x, y] + 1;
+                    }    
                 }
                 else
-                {
-                    distance[x, y - 1] = distance[x, y] + 1;
+                { // First Seen
+                    if (graph[x, y - 1].hasCollider)
+                    {
+                        distance[x, y - 1] = 11;
+                    }
+                    else
+                    {
+                        distance[x, y - 1] = distance[x, y] + 1;
+                    }
+                    toVisit[x, y - 1] = true;
                 }
-
             }
         }
         // Check Down
@@ -151,16 +192,29 @@ public class FoW_2 : MonoBehaviour
         { // In Bounds
             if (!graph[x, y + 1].visited)
             { // Not Finalized
-                toVisit[x, y + 1] = true;
-                if (graph[x, y + 1].hasCollider && !graph[x, y].hasCollider && distance[x, y + 1] < 6)
-                {
-                    distance[x, y + 1] = 6;
+                if (toVisit[x, y + 1])
+                { // Has Been Seen Before
+                    if (graph[x, y + 1].hasCollider)
+                    {
+                        distance[x, y + 1] += 11;
+                    }
+                    else if (distance[x, y + 1] > (distance[x, y] + 1))
+                    {
+                        distance[x, y + 1] = distance[x, y] + 1;
+                    }
                 }
                 else
-                {
-                    distance[x, y + 1] = distance[x, y] + 1;
+                { // First Seen
+                    if (graph[x, y + 1].hasCollider)
+                    {
+                        distance[x, y + 1] = 11;
+                    }
+                    else
+                    {
+                        distance[x, y + 1] = distance[x, y] + 1;
+                    }
+                    toVisit[x, y + 1] = true;
                 }
-
             }
         }
 

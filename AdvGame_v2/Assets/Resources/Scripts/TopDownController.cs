@@ -82,7 +82,6 @@ public class TopDownController : MonoBehaviour
                     speed = dragSpeed;
                     // Set Drag Anim Facing Box
                 } else {
-                    heldBox.GetComponentInParent<PushBoxes>().releaseText.SetActive(false);
                     ReleaseBox();
                 }
             }
@@ -126,6 +125,7 @@ public class TopDownController : MonoBehaviour
     public void ReleaseBox()
     {
         Debug.Log("Release Box");
+        heldBox.GetComponentInParent<PushBoxes>().releaseText.SetActive(false);
         holdingBox = false;
         // Detach Box from Player
         this.transform.DetachChildren();
