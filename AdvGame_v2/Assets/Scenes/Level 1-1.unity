@@ -13389,6 +13389,7 @@ GameObject:
   - component: {fileID: 1108173944}
   - component: {fileID: 1108173943}
   - component: {fileID: 1108173945}
+  - component: {fileID: 1108173946}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -13445,6 +13446,25 @@ MonoBehaviour:
   collisionMap: {fileID: 875823243}
   collisionTile: {fileID: 11400000, guid: 2a6b89b9753f93a42a61f341c710cac9, type: 2}
   fogTile: {fileID: 11400000, guid: 617cd92afe8e97f4bbd49424766eba56, type: 2}
+  borderTile: {fileID: 11400000, guid: 1e3bd15508946644989e1faa3118dd6a, type: 2}
+  player: {fileID: 426212259}
+--- !u!114 &1108173946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108173942}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb1043323be7c945ac1e2380cf102a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fogMap: {fileID: 1496719735}
+  collisionMap: {fileID: 875823243}
+  collisionTile: {fileID: 11400000, guid: 2a6b89b9753f93a42a61f341c710cac9, type: 2}
+  fogTile: {fileID: 11400000, guid: 617cd92afe8e97f4bbd49424766eba56, type: 2}
+  borderTile: {fileID: 11400000, guid: 1e3bd15508946644989e1faa3118dd6a, type: 2}
   player: {fileID: 426212259}
 --- !u!1001 &1116067337
 PrefabInstance:
@@ -13504,6 +13524,14 @@ PrefabInstance:
     - target: {fileID: 6743124566292312975, guid: df0371adab4f9b24bb1c6d1c5228a55b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6743124566292313008, guid: df0371adab4f9b24bb1c6d1c5228a55b, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6743124566292313008, guid: df0371adab4f9b24bb1c6d1c5228a55b, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df0371adab4f9b24bb1c6d1c5228a55b, type: 3}
@@ -13675,7 +13703,7 @@ Tilemap:
   m_TileColorArray: []
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.46226418, g: 0.45136172, b: 0.45136172, a: 0.92941177}
   m_Origin: {x: 0, y: 0, z: 0}
   m_Size: {x: 0, y: 0, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -13737,7 +13765,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16

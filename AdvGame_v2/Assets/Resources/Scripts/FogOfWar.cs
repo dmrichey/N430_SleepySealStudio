@@ -12,7 +12,8 @@ public class FogOfWar : MonoBehaviour
         public Vector3Int Position;
         public bool HasCollider;
         public bool Visited;
-        public bool IsDark;
+        // 0 - not dark, 1 - collider, 2 - border, 3+ - dark
+        public int DistFromCollider;
 
         public Node(int x, int y, Vector3Int position, bool hasCollider)
         {
@@ -21,24 +22,25 @@ public class FogOfWar : MonoBehaviour
             Position = position;
             HasCollider = hasCollider;
             Visited = false;
-            IsDark = false;
+            DistFromCollider = 0;
         }
 
-        public void SetVisited(bool isDark)
+        public void SetVisited(int dist)
         {
             Visited = true;
-            IsDark = isDark;
+            DistFromCollider = dist;
         }
     }
     
 
-    Node[,] graph = new Node[25, 25];
+    Node[,] graph = new Node[33, 33];
     LinkedList<Node> toVisit = new LinkedList<Node>();
     
     public Tilemap fogMap;
     public Tilemap collisionMap;
     public TileBase collisionTile;
     public TileBase fogTile;
+    public TileBase borderTile;
     public GameObject player;
 
     GridLayout gridLayout;
@@ -57,8 +59,8 @@ public class FogOfWar : MonoBehaviour
 
         // Build Graph of Cells around Player
         Vector3Int currentCell;
-        for (int i = 0; i < 25; i++) { 
-            for (int j = 0; j < 25; j++) {
+        for (int i = 0; i < 33; i++) { 
+            for (int j = 0; j < 33; j++) {
                 currentCell = playerCell - new Vector3Int(i - 12, j - 12, 0);
                 graph[i, j] = new Node(i, j, currentCell, collisionMap.GetTile(currentCell) == collisionTile);
             }
@@ -71,12 +73,15 @@ public class FogOfWar : MonoBehaviour
         Visit(toVisit, graph);
 
         // Set Darkness
-        Debug.Log("Setting Darkness");
-        for (int i = 0; i < 25; i++) {
-            for (int j = 0; j < 25; j++) {
-                if (graph[i,j].IsDark)
+        //Debug.Log("Setting Darkness");
+        for (int i = 0; i < 33; i++) {
+            for (int j = 0; j < 33; j++) {
+                if (graph[i,j].DistFromCollider >= 3)
                 {
                     fogMap.SetTile(graph[i, j].Position, fogTile);
+                } else if (graph[i, j].DistFromCollider == 2)
+                {
+                    fogMap.SetTile(graph[i, j].Position, borderTile);
                 }
             }
         }
@@ -89,16 +94,18 @@ public class FogOfWar : MonoBehaviour
         int x = toVisit.First.Value.X;
         int y = toVisit.First.Value.Y;
         bool hasCollision = toVisit.First.Value.HasCollider;
-        bool isDark = toVisit.First.Value.IsDark;
+        int distance = toVisit.First.Value.DistFromCollider;
 
         // Check Left
         if (x - 1 >= 0) {
             if (!graph[x - 1, y].Visited) {
                 toVisit.AddLast(graph[x - 1, y]);
-                if (hasCollision || isDark) {
-                    graph[x - 1, y].SetVisited(true);
+                if (distance == 0 && hasCollision) {
+                    graph[x - 1, y].SetVisited(1);
+                } else if (distance > 0) {
+                    graph[x - 1, y].SetVisited(distance + 1);
                 } else {
-                    graph[x - 1, y].SetVisited(false);
+                    graph[x - 1, y].SetVisited(0);
                 }
             }
         }
@@ -106,10 +113,17 @@ public class FogOfWar : MonoBehaviour
         if (y - 1 >= 0) {
             if (!graph[x, y - 1].Visited) {
                 toVisit.AddLast(graph[x, y - 1]);
-                if (hasCollision || isDark) {
-                    graph[x, y - 1].SetVisited(true);
-                } else {
-                    graph[x, y - 1].SetVisited(false);
+                if (distance == 0 && hasCollision)
+                {
+                    graph[x, y - 1].SetVisited(1);
+                }
+                else if (distance > 0)
+                {
+                    graph[x, y - 1].SetVisited(distance + 1);
+                }
+                else
+                {
+                    graph[x, y - 1].SetVisited(0);
                 }
             }
         }
@@ -119,13 +133,17 @@ public class FogOfWar : MonoBehaviour
             if (!graph[x + 1, y].Visited)
             {
                 toVisit.AddLast(graph[x + 1, y]);
-                if (hasCollision || isDark)
+                if (distance == 0 && hasCollision)
                 {
-                    graph[x + 1, y].SetVisited(true);
+                    graph[x + 1, y].SetVisited(1);
+                }
+                else if (distance > 0)
+                {
+                    graph[x + 1, y].SetVisited(distance + 1);
                 }
                 else
                 {
-                    graph[x + 1, y].SetVisited(false);
+                    graph[x + 1, y].SetVisited(0);
                 }
             }
         }
@@ -135,13 +153,17 @@ public class FogOfWar : MonoBehaviour
             if (!graph[x, y + 1].Visited)
             {
                 toVisit.AddLast(graph[x, y + 1]);
-                if (hasCollision || isDark)
+                if (distance == 0 && hasCollision)
                 {
-                    graph[x, y + 1].SetVisited(true);
+                    graph[x, y + 1].SetVisited(1);
+                }
+                else if (distance > 0)
+                {
+                    graph[x, y + 1].SetVisited(distance + 1);
                 }
                 else
                 {
-                    graph[x, y + 1].SetVisited(false);
+                    graph[x, y + 1].SetVisited(0);
                 }
             }
         }
