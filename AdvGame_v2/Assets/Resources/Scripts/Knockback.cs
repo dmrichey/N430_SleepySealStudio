@@ -7,7 +7,7 @@ public class Knockback : MonoBehaviour
 {
     // Class needs to be attached to the player prefab
 
-    private Rigidbody2D rb;
+    public  Rigidbody2D rb;
 
     [SerializeField]
     public float strength = 17;
@@ -24,9 +24,13 @@ public class Knockback : MonoBehaviour
 
     public void PlayKnockBack(GameObject sender) 
     {
+        
         StopAllCoroutines();
         Vector2 direction = (transform.position - sender.transform.position).normalized;
 
+        Debug.Log(direction);
+
+        GetComponent<TopDownController>().setMovementEnabled(false);
         rb.AddForce(direction * strength, ForceMode2D.Impulse);
         StartCoroutine(Reset());
 
@@ -36,7 +40,7 @@ public class Knockback : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         rb.velocity = Vector2.zero;
-        
+        GetComponent<TopDownController>().setMovementEnabled(true);
 
     }
 

@@ -23,8 +23,8 @@ public class TextLibrary : MonoBehaviour
     Text[] library = {
         new Text(0, "No Listed Text", false),
         new Text(1, "Test Element 1", false),
-        new Text(2, "Test Element 2a", true),
-        new Text(3, "Test Element 2b", false)
+        new Text(2, "Hello Twitter", true),
+        new Text(3, "#screenshotsaturday", false)
     };
 
     Text currentText;

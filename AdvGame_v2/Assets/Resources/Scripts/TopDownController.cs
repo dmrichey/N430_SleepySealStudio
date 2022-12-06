@@ -67,7 +67,11 @@ public class TopDownController : MonoBehaviour
         direction = new Vector2(dx, dy).normalized;
 
         // set walk based on direction
-        body.velocity = direction * speed;
+        if (movementEnabled)
+        {
+            body.velocity = direction * speed;
+        }
+       
 
         if (boxGrabEnabled || holdingBox) {
             if (Input.GetKeyDown(KeyCode.E)) {
@@ -132,5 +136,10 @@ public class TopDownController : MonoBehaviour
         // Change Speed
         speed = baseSpeed;
         // Resume Normal Animations
+    }
+
+    public void setMovementEnabled(bool input) {
+
+        movementEnabled = input;    
     }
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6743124566292313008}
   - component: {fileID: 6743124566292312973}
   - component: {fileID: 6743124566292312972}
+  - component: {fileID: 8254461669746539604}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -146,3 +147,17 @@ MonoBehaviour:
   itemGrabEnabled: 0
   itemToGrab: {fileID: 0}
   canvas: {fileID: 0}
+--- !u!114 &8254461669746539604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743124566292312971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d93b28657abc944a87a40bfc889b6b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 17
+  delay: 0.15
