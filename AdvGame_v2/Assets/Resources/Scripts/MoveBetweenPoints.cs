@@ -12,13 +12,19 @@ public class MoveBetweenPoints : MonoBehaviour
     private float target_margin = .05f;
 
     [SerializeField]
+    private bool StartOnInitialPoint = true;
+
+    [SerializeField]
     private GameObject[] Points;
 
     public int index;
     private Transform target;
     void Start()
     {
-        
+        if (StartOnInitialPoint && Points.Length > 0)
+        {
+            gameObject.transform.position = Points[0].transform.position;
+        }
     }
 
     // Update is called once per frame
