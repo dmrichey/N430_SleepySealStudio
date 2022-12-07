@@ -7,6 +7,7 @@ public class TopDownController : MonoBehaviour
 
     Rigidbody2D body;
     SpriteRenderer spriteRenderer;
+    Animator anim;
 
 
     // Animation Setup
@@ -42,6 +43,7 @@ public class TopDownController : MonoBehaviour
     {
         body = this.GetComponent<Rigidbody2D>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
+        anim = this.GetComponent<Animator>();
 
         speed = baseSpeed;
         currentSortingOrder = spriteRenderer.sortingOrder;
@@ -65,6 +67,51 @@ public class TopDownController : MonoBehaviour
         }
 
         direction = new Vector2(dx, dy).normalized;
+
+        if (direction == Vector2.zero)
+        {
+            anim.SetBool("Moving", false);
+        } else
+        {
+            anim.SetBool("Moving", true);
+            if (direction.x > 0)
+            {
+                if (direction.y > 0)
+                {
+                    anim.SetInteger("FacingDirection", 1);
+                } else if (direction.y < 0)
+                {
+                    anim.SetInteger("FacingDirection", 3);
+                } else
+                {
+                    anim.SetInteger("FacingDirection", 2);
+                }
+            } else if (direction.x < 0)
+            {
+                if (direction.y > 0)
+                {
+                    anim.SetInteger("FacingDirection", 7);
+                }
+                else if (direction.y < 0)
+                {
+                    anim.SetInteger("FacingDirection", 5);
+                }
+                else
+                {
+                    anim.SetInteger("FacingDirection", 6);
+                }
+            } else
+            {
+                if (direction.y > 0)
+                {
+                    anim.SetInteger("FacingDirection", 8);
+                }
+                else if (direction.y < 0)
+                {
+                    anim.SetInteger("FacingDirection", 4);
+                }
+            }
+        }
 
         // set walk based on direction
         if (movementEnabled)
