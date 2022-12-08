@@ -38,6 +38,11 @@ public class TopDownController : MonoBehaviour
     public GameObject canvas;
     bool textDisplayed = false;
 
+    // Objective Tracking
+    public bool nextToDoor = false;
+    public GameObject door;
+    public GameObject objectiveTracker;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -118,8 +123,8 @@ public class TopDownController : MonoBehaviour
         {
             body.velocity = direction * speed;
         }
-       
 
+        // Grab Box
         if (boxGrabEnabled || holdingBox) {
             if (Input.GetKeyDown(KeyCode.E)) {
                 if (!holdingBox) {
@@ -136,13 +141,15 @@ public class TopDownController : MonoBehaviour
                     ReleaseBox();
                 }
             }
-        } else if (buttonPressEnabled) {
+        } // Press Button 
+        else if (buttonPressEnabled) {
             if (Input.GetKeyDown(KeyCode.E)) {
                 Debug.Log("Press Button");
 
                 buttonToPress.GetComponentInParent<Button>().PressButton();
             }
-        } else if (itemGrabEnabled) {
+        } // Read Collectible 
+        else if (itemGrabEnabled) {
             if (Input.GetKeyDown(KeyCode.E)) {
                 Debug.Log("Collect Item");
 
@@ -153,7 +160,8 @@ public class TopDownController : MonoBehaviour
                 textDisplayed = true;
                 canvas.GetComponentInParent<TextLibrary>().DisplayText(itemID);
             }
-        } else if (textDisplayed) {
+        } // Collectible Next 
+        else if (textDisplayed) {
             if (Input.GetKeyDown(KeyCode.E)) {
                 Debug.Log("Next Text");
 
@@ -163,6 +171,16 @@ public class TopDownController : MonoBehaviour
                     canvas.SetActive(false);
                     movementEnabled = true;
                 }
+            }
+        } // Read Door
+        else if (nextToDoor)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.Log("Read Door");
+
+                door.GetComponent<Door>().SetRead();
+                objectiveTracker.SetActive(true);
             }
         }
     }

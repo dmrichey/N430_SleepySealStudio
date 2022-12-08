@@ -20,6 +20,7 @@ public class PlaceBox : MonoBehaviour
                 other.GetComponentInParent<TopDownController>().ReleaseBox();
                 other.transform.parent = this.transform;
                 other.transform.position = positionLockOffset;
+                other.GetComponent<PushBoxes>().isPlaced = true;
 
                 if (isExitTrigger)
                 {

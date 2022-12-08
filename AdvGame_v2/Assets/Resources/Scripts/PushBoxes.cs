@@ -7,10 +7,11 @@ public class PushBoxes : MonoBehaviour
 
     public GameObject grabText;
     public GameObject releaseText;
+    public bool isPlaced = false;
     
     void OnTriggerEnter2D(Collider2D other) 
     {
-        if (other.CompareTag("Player")) {
+        if (other.CompareTag("Player") && !isPlaced) {
             Debug.Log("SetBoxGrabEnabled");
             other.GetComponentInParent<TopDownController>().boxGrabEnabled = true;
             other.GetComponentInParent<TopDownController>().boxToMove = this.gameObject;
