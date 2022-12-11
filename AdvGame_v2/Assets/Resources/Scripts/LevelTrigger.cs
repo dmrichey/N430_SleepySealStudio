@@ -11,6 +11,7 @@ public class LevelTrigger : MonoBehaviour
 
     public GameObject exitEffect;
     public GameObject sideEffect;
+    public GameObject sideEffect2;
 
     public void TriggerExitEvent()
     {
@@ -27,6 +28,10 @@ public class LevelTrigger : MonoBehaviour
         if (sTriggerCounter == sideTriggerCount)
         {
             sideEffect.GetComponent<EventScript>().TriggerEvent();
+            if (sideEffect2 != null)
+            {
+                sideEffect2.GetComponent<EventScript>().TriggerEvent();
+            }
         }
     }
 }

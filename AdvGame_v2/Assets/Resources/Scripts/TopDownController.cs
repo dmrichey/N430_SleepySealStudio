@@ -41,7 +41,7 @@ public class TopDownController : MonoBehaviour
     // Objective Tracking
     public bool nextToDoor = false;
     public GameObject door;
-    public GameObject objectiveTracker;
+    public GameObject[] objectiveTracker;
 
     // Start is called before the first frame update
     void Start()
@@ -180,7 +180,7 @@ public class TopDownController : MonoBehaviour
                 Debug.Log("Read Door");
 
                 door.GetComponent<Door>().SetRead();
-                objectiveTracker.SetActive(true);
+                objectiveTracker[door.GetComponent<Door>().id].SetActive(true);
             }
         }
     }
