@@ -9342,16 +9342,18 @@ CompositeCollider2D:
         Y: 19950000
       - X: -65000000
         Y: 22449998
-      - X: -80000000
-        Y: 29949998
-      - X: -75000000
-        Y: 32449998
-      - X: -80000000
-        Y: 34950000
-      - X: -85000000
-        Y: 37450000
-      - X: -90000000
-        Y: 34950000
+      - X: -79999888
+        Y: 29949942
+      - X: -79999976
+        Y: 29949898
+      - X: -80000024
+        Y: 29949898
+      - X: -85000024
+        Y: 32449898
+      - X: -90000100
+        Y: 34949938
+      - X: -90000100
+        Y: 34950050
       - X: -110000000
         Y: 44950000
       - X: -80000112
@@ -9785,10 +9787,6 @@ CompositeCollider2D:
       - {x: -3.9999385, y: 1.4949691}
       - {x: -3.5000618, y: 1.2449691}
       - {x: -4.000012, y: 0.9950059}
-      - {x: -7.9999385, y: 2.9950309}
-      - {x: -7.5000615, y: 3.2450309}
-      - {x: -8.500012, y: 3.744994}
-      - {x: -9.000012, y: 3.495006}
       - {x: -10.999939, y: 4.495031}
       - {x: -7.999977, y: 5.9949884}
       - {x: -7.499988, y: 5.7450056}
@@ -12695,16 +12693,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 2147483649
-  - first: {x: -2, y: 14, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 2147483649
   - first: {x: 2, y: 14, z: 0}
     second:
       serializedVersion: 2
@@ -12766,16 +12754,6 @@ Tilemap:
       dummyAlignment: 0
       m_AllTileFlags: 2147483649
   - first: {x: -3, y: 15, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 2147483649
-  - first: {x: -2, y: 15, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 0
@@ -13257,13 +13235,13 @@ Tilemap:
       m_AllTileFlags: 2147483649
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 330
+  - m_RefCount: 328
     m_Data: {fileID: 11400000, guid: 2a6b89b9753f93a42a61f341c710cac9, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 330
+  - m_RefCount: 328
     m_Data: {fileID: 21300000, guid: 4c57819909dbf834ab3a0e3b2e3d3a5b, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 330
+  - m_RefCount: 328
     m_Data:
       e00: 1
       e01: 0
@@ -13282,7 +13260,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 330
+  - m_RefCount: 328
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1

@@ -56,6 +56,7 @@ public class Door : MonoBehaviour
 
             Vector3 newPosition = spriteToMove.transform.position;
             newPosition.y -= 0.645f * Time.deltaTime;
+            newPosition.z -= 6.0f * Time.deltaTime;
             spriteToMove.transform.position = newPosition;
         }
     }
