@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1614717513508640448
 Transform:
   m_ObjectHideFlags: 0
@@ -100,7 +100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6124052905458282233
 Transform:
   m_ObjectHideFlags: 0
@@ -299,6 +299,7 @@ MonoBehaviour:
   openTime: 2
   grabText: {fileID: 0}
   spriteToMove: {fileID: 6359618723934160022}
+  id: 0
 --- !u!1 &6359618723934160022
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +325,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6359618723934160022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.625, y: -0.56, z: 0}
+  m_LocalPosition: {x: 0.75, y: -0.625, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
