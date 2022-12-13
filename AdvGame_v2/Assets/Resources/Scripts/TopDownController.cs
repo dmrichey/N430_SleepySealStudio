@@ -11,7 +11,10 @@ public class TopDownController : MonoBehaviour
 
 
     // Animation Setup
-    bool movementEnabled = true;
+    bool movementEnabled = false;
+    bool movementStateChange = true;
+    float moveDisabledTimer = 0.0f;
+    float moveDelay = 0.1f;
     public float baseSpeed;
     Vector2 direction;
     float speed;
@@ -57,6 +60,17 @@ public class TopDownController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (movementStateChange)
+        {
+            moveDisabledTimer += Time.deltaTime;
+            if (moveDisabledTimer > moveDelay)
+            {
+                moveDisabledTimer = 0.0f;
+                movementEnabled = true;
+                movementStateChange = false;
+            }
+        }
+
         // get direction of input
         if (movementEnabled) {
             if (Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") != 0)
@@ -69,6 +83,10 @@ public class TopDownController : MonoBehaviour
                 dx = Input.GetAxis("Horizontal");
                 dy = Input.GetAxis("Vertical");
             }
+        } else
+        {
+            dx = 0.0f;
+            dy = 0.0f;
         }
 
         direction = new Vector2(dx, dy).normalized;
@@ -119,10 +137,8 @@ public class TopDownController : MonoBehaviour
         }
 
         // set walk based on direction
-        if (movementEnabled)
-        {
-            body.velocity = direction * speed;
-        }
+        body.velocity = direction * speed;
+        
 
         // Grab Box
         if (boxGrabEnabled || holdingBox) {
@@ -169,7 +185,7 @@ public class TopDownController : MonoBehaviour
                 if (!textDisplayed)
                 {
                     canvas.SetActive(false);
-                    movementEnabled = true;
+                    movementStateChange = true;
                 }
             }
         } // Read Door
