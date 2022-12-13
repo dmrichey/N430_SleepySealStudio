@@ -30,7 +30,7 @@ public class Knockback : MonoBehaviour
 
         Debug.Log(direction);
 
-        GetComponent<TopDownController>().setMovementEnabled(false);
+        GetComponent<TopDownController>().movementEnabled = false;
         rb.AddForce(direction * strength, ForceMode2D.Impulse);
         StartCoroutine(Reset());
 
@@ -40,7 +40,7 @@ public class Knockback : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         rb.velocity = Vector2.zero;
-        GetComponent<TopDownController>().setMovementEnabled(true);
+        GetComponent<TopDownController>().EnableMovement();
 
     }
 

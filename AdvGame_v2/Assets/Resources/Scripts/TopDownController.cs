@@ -8,10 +8,11 @@ public class TopDownController : MonoBehaviour
     Rigidbody2D body;
     SpriteRenderer spriteRenderer;
     Animator anim;
+    GameObject pauseMenu;
 
 
     // Animation Setup
-    bool movementEnabled = false;
+    public bool movementEnabled = false;
     bool movementStateChange = true;
     float moveDisabledTimer = 0.0f;
     float moveDelay = 0.1f;
@@ -38,6 +39,7 @@ public class TopDownController : MonoBehaviour
     public bool itemGrabEnabled = false;
     public GameObject itemToGrab;
     int itemID = 0;
+    int entryID = 0;
     public GameObject canvas;
     bool textDisplayed = false;
 
@@ -52,6 +54,7 @@ public class TopDownController : MonoBehaviour
         body = this.GetComponent<Rigidbody2D>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         anim = this.GetComponent<Animator>();
+        pauseMenu = GameObject.Find("PauseMenu");
 
         speed = baseSpeed;
         currentSortingOrder = spriteRenderer.sortingOrder;
@@ -169,12 +172,19 @@ public class TopDownController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E)) {
                 Debug.Log("Collect Item");
 
-                itemID = itemToGrab.GetComponentInParent<Collectible>().Collect();
+                var item = itemToGrab.GetComponentInParent<Collectible>();
+
+                itemID = item.textID;
+                entryID = item.entryID;
+                item.Collect();
+                
                 movementEnabled = false;
 
                 canvas.SetActive(true);
                 textDisplayed = true;
                 canvas.GetComponentInParent<TextLibrary>().DisplayText(itemID);
+
+                pauseMenu.GetComponentInParent<PauseMenu>().FoundEntry(entryID);
             }
         } // Collectible Next 
         else if (textDisplayed) {
@@ -199,6 +209,13 @@ public class TopDownController : MonoBehaviour
                 objectiveTracker[door.GetComponent<Door>().id].SetActive(true);
             }
         }
+
+        // Pause Menu
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pauseMenu.GetComponentInParent<PauseMenu>().PauseGame(this.gameObject);
+            movementEnabled = false;
+        }
     }
 
     public void ShiftLayer(int layer)
@@ -219,8 +236,8 @@ public class TopDownController : MonoBehaviour
         // Resume Normal Animations
     }
 
-    public void setMovementEnabled(bool input) {
-
-        movementEnabled = input;    
+    public void EnableMovement()
+    {
+        movementStateChange = true;
     }
 }

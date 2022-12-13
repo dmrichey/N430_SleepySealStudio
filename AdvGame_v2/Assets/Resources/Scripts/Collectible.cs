@@ -6,6 +6,7 @@ public class Collectible : MonoBehaviour
 {
     public GameObject grabText;
     public int textID;
+    public int entryID;
     Collider2D player;
     bool collected;
    
@@ -32,13 +33,11 @@ public class Collectible : MonoBehaviour
         }
     }
 
-    public int Collect()
+    public void Collect()
     {
         collected = true;
         player.GetComponentInParent<TopDownController>().itemGrabEnabled = false;
         player.GetComponentInParent<TopDownController>().itemToGrab = null;
         grabText.SetActive(false);
-
-        return textID;
     }
 }
