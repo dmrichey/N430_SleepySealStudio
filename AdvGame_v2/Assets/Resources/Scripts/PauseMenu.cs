@@ -12,6 +12,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject[] journalEntries;
     public GameObject pauseMenu;
     GameObject player;
+    public float elapsedTime = 0.0f;
+    public int numCollected = 0;
 
     public struct JournalEntry
     {
@@ -51,9 +53,15 @@ public class PauseMenu : MonoBehaviour
         DontDestroyOnLoad(pauseMenu);
     }
 
+    void Update()
+    {
+        elapsedTime += Time.deltaTime;
+    }
+
     public void FoundEntry(int id)
     {
         journalEntries[id].SetActive(true);
+        numCollected++;
     }
 
     public void PauseGame(GameObject player)

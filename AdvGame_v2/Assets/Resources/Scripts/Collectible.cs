@@ -39,5 +39,6 @@ public class Collectible : MonoBehaviour
         player.GetComponentInParent<TopDownController>().itemGrabEnabled = false;
         player.GetComponentInParent<TopDownController>().itemToGrab = null;
         grabText.SetActive(false);
+        this.gameObject.SetActive(false);
     }
 }
