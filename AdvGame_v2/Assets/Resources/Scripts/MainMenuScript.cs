@@ -14,4 +14,9 @@ public class MainMenuScript : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void Swap(GameObject target) {
+        gameObject.transform.parent.gameObject.SetActive(false);
+        target.SetActive(true);
+    }
 }
