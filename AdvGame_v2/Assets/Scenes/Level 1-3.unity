@@ -19696,7 +19696,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6957236263737208840, guid: 2452908c36ea7aa41b1d7aa7b6adabb1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6957236263737208840, guid: 2452908c36ea7aa41b1d7aa7b6adabb1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -19740,12 +19740,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6957236263737208841, guid: 2452908c36ea7aa41b1d7aa7b6adabb1, type: 3}
       propertyPath: positionLockOffset.y
-      value: -0.5
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: 6957236263737208843, guid: 2452908c36ea7aa41b1d7aa7b6adabb1, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1182555911, guid: c31e009d03fd67546bbbb48ec1ad99c9, type: 3}
+    - target: {fileID: 6957236263737208843, guid: 2452908c36ea7aa41b1d7aa7b6adabb1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6957236263737208845, guid: 2452908c36ea7aa41b1d7aa7b6adabb1, type: 3}
       propertyPath: m_Name
       value: PlaceBox (2)
@@ -22282,7 +22286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6957236263737208840, guid: 2452908c36ea7aa41b1d7aa7b6adabb1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6957236263737208840, guid: 2452908c36ea7aa41b1d7aa7b6adabb1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -22330,12 +22334,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6957236263737208841, guid: 2452908c36ea7aa41b1d7aa7b6adabb1, type: 3}
       propertyPath: positionLockOffset.y
-      value: 14.75
+      value: 14.15
       objectReference: {fileID: 0}
     - target: {fileID: 6957236263737208843, guid: 2452908c36ea7aa41b1d7aa7b6adabb1, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 650609602, guid: c31e009d03fd67546bbbb48ec1ad99c9, type: 3}
+    - target: {fileID: 6957236263737208843, guid: 2452908c36ea7aa41b1d7aa7b6adabb1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6957236263737208845, guid: 2452908c36ea7aa41b1d7aa7b6adabb1, type: 3}
       propertyPath: m_Name
       value: PlaceBox (1)
@@ -119040,7 +119048,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6957236263737208840, guid: 2452908c36ea7aa41b1d7aa7b6adabb1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6957236263737208840, guid: 2452908c36ea7aa41b1d7aa7b6adabb1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -119088,12 +119096,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6957236263737208841, guid: 2452908c36ea7aa41b1d7aa7b6adabb1, type: 3}
       propertyPath: positionLockOffset.y
-      value: 2.25
+      value: 1.65
       objectReference: {fileID: 0}
     - target: {fileID: 6957236263737208843, guid: 2452908c36ea7aa41b1d7aa7b6adabb1, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 650609602, guid: c31e009d03fd67546bbbb48ec1ad99c9, type: 3}
+    - target: {fileID: 6957236263737208843, guid: 2452908c36ea7aa41b1d7aa7b6adabb1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6957236263737208845, guid: 2452908c36ea7aa41b1d7aa7b6adabb1, type: 3}
       propertyPath: m_Name
       value: PlaceBox
