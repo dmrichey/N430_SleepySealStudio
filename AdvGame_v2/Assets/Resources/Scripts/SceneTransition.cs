@@ -15,12 +15,11 @@ public class SceneTransition : MonoBehaviour
     bool fadingIn = false;
     bool fadingOut = false;
     float fadeAmount;
-    Color objectColor;
+    Color objectColor = new Color(0,0,0,1);
 
     void Awake()
     {
         fadingIn = true;
-        objectColor = blackout.GetComponent<Image>().color;
     }
 
     void Update()
