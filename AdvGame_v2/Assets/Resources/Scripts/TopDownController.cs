@@ -8,6 +8,7 @@ public class TopDownController : MonoBehaviour
     Rigidbody2D body;
     SpriteRenderer spriteRenderer;
     Animator anim;
+    AudioSource audioSource;
     GameObject pauseMenu;
 
 
@@ -48,12 +49,20 @@ public class TopDownController : MonoBehaviour
     public GameObject door;
     public GameObject[] objectiveTracker;
 
+    // Sound Handling
+    public AudioClip[] sounds;
+    bool walking = false;
+    bool playing = false;
+    //float soundLoopTime = 3.0f;
+    //float soundTimer = 3.1f;
+
     // Start is called before the first frame update
     void Start()
     {
         body = this.GetComponent<Rigidbody2D>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         anim = this.GetComponent<Animator>();
+        audioSource = this.GetComponent<AudioSource>();
         pauseMenu = GameObject.Find("PauseMenu");
 
         speed = baseSpeed;
@@ -97,9 +106,11 @@ public class TopDownController : MonoBehaviour
         if (direction == Vector2.zero)
         {
             anim.SetBool("Moving", false);
+            walking = false;
         } else
         {
             anim.SetBool("Moving", true);
+            walking = true;
             if (direction.x > 0)
             {
                 if (direction.y > 0)
@@ -215,6 +226,51 @@ public class TopDownController : MonoBehaviour
         {
             pauseMenu.GetComponentInParent<PauseMenu>().PauseGame(this.gameObject);
             movementEnabled = false;
+        }
+
+        // Sound Handling
+        if (walking)
+        {
+            // Set Sound Type
+            if (holdingBox)
+            {
+                // Play AudioClip[1]
+                if (audioSource.clip == sounds[0])
+                {
+                    playing = false;
+                }
+                audioSource.clip = sounds[1];
+            }
+            else
+            {
+                // Play AudioClip[0]
+                if (audioSource.clip == sounds[1])
+                {
+                    playing = false;
+                }
+                audioSource.clip = sounds[0];
+            }
+
+            /*// Restart Sound
+            if (soundTimer >= soundLoopTime)
+            {
+                audioSource.Play();
+                soundTimer = 0.0f;
+            }
+            else
+            {
+                soundTimer += Time.deltaTime;
+            }*/
+            if (!playing)
+            {
+                audioSource.Play();
+                playing = true;
+            }
+        } else
+        {
+            audioSource.Stop();
+            playing = false;
+            //soundTimer = soundLoopTime;
         }
     }
 

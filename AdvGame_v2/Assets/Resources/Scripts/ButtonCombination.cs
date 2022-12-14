@@ -11,8 +11,12 @@ public class ButtonCombination : MonoBehaviour
     public GameObject levelTrigger;
     public bool isExitTrigger;
 
+    AudioSource audio;
+    public AudioClip[] sounds;
+
     void Start()
     {
+        audio = this.GetComponent<AudioSource>();
         combinationSize = buttonsToPress.Length;
     }
 
@@ -21,9 +25,11 @@ public class ButtonCombination : MonoBehaviour
         if (button == buttonsToPress[numButtonsPressed])
         {
             Debug.Log("Correct Button");
+            audio.clip = sounds[0];
             numButtonsPressed++;
             if (numButtonsPressed == combinationSize)
             {
+                audio.clip = sounds[1];
                 if (isExitTrigger)
                 {
                     levelTrigger.GetComponent<LevelTrigger>().TriggerExitEvent();
@@ -36,7 +42,9 @@ public class ButtonCombination : MonoBehaviour
         } else
         {
             Debug.Log("Incorrect Button. Resetting...");
+            audio.clip = sounds[2];
             numButtonsPressed = 0;
         }
+        audio.Play();
     }
 }
